@@ -1,6 +1,18 @@
-@mixin pin
+@mixin pin()
   position: fixed
   top: 0
   left: 0
   right: 0
   bottom: 0
+
+@mixin animationRotate($speed: 1s)
+  @keyframes animationRotate
+      from
+        transform: rotate(0)
+      to
+        transform: rotate(360deg)
+  animation:
+    name: animationRotate
+    duration: $speed
+    iteration-count: infinite
+    timing-function: linear
