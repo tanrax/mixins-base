@@ -20,9 +20,9 @@
 @mixin animationPulse($speed: 1s, $size: 1rem, $color: black)
   @keyframes animationPulse
       from
-        box-shadow: 0 0 0 0 $color;
+        box-shadow: 0 0 0 0 $color
       to
-        box-shadow: 0 0 0 $size transparentize($color, 1);
+        box-shadow: 0 0 0 $size transparentize($color, 1)
   animation:
     name: animationPulse
     duration: $speed
