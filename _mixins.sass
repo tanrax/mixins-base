@@ -1,10 +1,14 @@
 /*
+ * Fixes an element on the page to take up all the space or only part of it.
  * $side: all (default), top, bottom
+ *
+ * Examples: @include pin() , @include pin('top'), @include pin('bottom', 2500)
  */
-@mixin pin($side: all)
+@mixin pin($side: all, $z-index: 1000)
   position: fixed
   left: 0
   right: 0
+  z-index: $z-index
   @if $side == 'all'
     top: 0
     bottom: 0
