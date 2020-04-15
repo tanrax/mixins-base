@@ -1,16 +1,24 @@
-@mixin pin()
+/*
+ * $side: all (default), top, bottom
+ */
+@mixin pin($side: all)
   position: fixed
-  top: 0
   left: 0
   right: 0
-  bottom: 0
+  @if $side == 'all'
+    top: 0
+    bottom: 0
+  @else if $side == 'top'
+    top: 0
+  @else if $side == 'bottom'
+    bottom: 0
 
-@mixin sizeCube($size: 1rem)
+@mixin sizeCube($size)
   width: $size
   height: $size
 
 /*
- * $size: all, top, right, bottom, left
+ * $side: all (default), top, right, bottom, left
  */
 @mixin border($size: 1px, $color: black, $side: all)
   border: 0
