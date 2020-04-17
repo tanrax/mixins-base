@@ -17,11 +17,18 @@
   @else if $side == 'bottom'
     bottom: 0
 
+/*
+ * Add a border through the shadows avoiding extra space.
+ * $size: unit
+ *
+ * Examples: @include sizeSquare(4rem) , @include sizeSquare(10px)
+ */
 @mixin sizeSquare($size)
   width: $size
   height: $size
 
 /*
+ * Add a border through the shadows avoiding extra space.
  * $side: all (default), top, right, bottom, left
  */
 @mixin border($size: 1px, $color: black, $side: all)
