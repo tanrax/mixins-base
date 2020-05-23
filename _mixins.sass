@@ -26,10 +26,24 @@
 @mixin sizeSquare($size)
   width: $size
   height: $size
+  
+/*
+ * Remove initial styles <ul>
+ *
+ * Examples: @include ulReset()
+ */
+@mixin ulReset()
+  list-style: initial
+  padding: initial
+  margin: initial
 
 /*
  * Add a border through the shadows avoiding extra space.
+ * $size: 1px (default), unit
+ * $color: black (default), color
  * $side: all (default), top, right, bottom, left
+ *
+ * Examples: @include border(), @include border(2px, dashed), @include border(2px, solid, red)
  */
 @mixin border($size: 1px, $color: black, $side: all)
   border: 0
@@ -45,6 +59,12 @@
   @else if $side == 'bottom'
     box-shadow: inset 0 -#{$size} 0 0 $color
 
+/*
+ * Add a rotation animation.
+ * $speed: 1s (default), seconds
+ *
+ * Examples: @include animationRotate(2s), @include animationRotate(0.5s)
+ */
 @mixin animationRotate($speed: 1s)
   $id: unique-id()
   @keyframes#{$id}
