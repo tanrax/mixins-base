@@ -36,6 +36,17 @@
   list-style: none
   padding: initial
   margin: initial
+  
+/*
+ * Remove initial styles <button>
+ *
+ * Examples: @include buttonReset()
+ */
+@mixin buttonReset()
+  background: initial
+  border: initial
+  padding: initial
+  margin: initial
 
 /*
  * Add a border through the shadows avoiding extra space.
@@ -100,6 +111,13 @@
     iteration-count: $iteration
     timing-function: linear
     
+/*
+ * Add a opacity animation.
+ * $speed: 1s (default), seconds
+ * $iteration: infinite (default), number
+ *
+ * Examples: @include animationOpacity(2s), @include animationOpacity(0.5s, 1)
+ */  
 @mixin animationOpacity($speed: 1s, $iteration: infinite)
   $id: unique-id()
   @keyframes #{$id}
