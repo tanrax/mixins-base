@@ -142,3 +142,14 @@
   justify-content: center
   align-items: center
 
+/*
+ * Mimics grid-gap separation for flex
+ *
+ * Examples: @include gridGap(2.5rem)
+ */
+@mixin gridGap($size: 1rem)
+  margin: 0 $size
+  &:first-child
+    margin-left: 0
+  &:last-child
+    margin-right: 0
