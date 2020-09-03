@@ -153,3 +153,22 @@
     margin-left: 0
   &:last-child
     margin-right: 0
+  
+/*
+ * Create animation from a horizontal sprite sheet
+ *
+ * Examples: @include animationSpriteSheet(6, "../img/sprite.png", 1.5s)
+ */ 
+@mixin animationSpriteSheet($steps, $image, $speed: 1s, $iteration: infinite)
+  $id: unique-id()
+  @keyframes #{$id}
+    100%
+      background-position-x: calc(#{$steps} * -100%)
+  animation:
+    name: $id
+    duration: $speed
+    iteration-count: $iteration
+    timing-function: steps(#{$steps}) 
+  background:
+    image: url(#{$image})
+    size: calc(#{$steps} * 100%) auto
