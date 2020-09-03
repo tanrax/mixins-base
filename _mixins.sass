@@ -54,7 +54,7 @@
  * $color: black (default), color
  * $side: all (default), top, right, bottom, left
  *
- * Examples: @include border(), @include border(2px, dashed), @include border(2px, solid, red)
+ * Examples: @include border(), @include border(2px, red), @include border(2px, red, left)
  */
 @mixin border($size: 1px, $color: black, $side: all)
   border: 0
@@ -133,6 +133,25 @@
     direction: alternate
 
 /*
+ * Create animation from a horizontal sprite sheet
+ *
+ * Examples: @include animationSpriteSheet(6, "../img/sprite.png", 1.5s)
+ */ 
+@mixin animationSpriteSheet($steps, $image, $speed: 1s, $iteration: infinite)
+  $id: unique-id()
+  @keyframes #{$id}
+    100%
+      background-position-x: calc(#{$steps} * -100%)
+  animation:
+    name: $id
+    duration: $speed
+    iteration-count: $iteration
+    timing-function: steps(#{$steps}) 
+  background:
+    image: url(#{$image})
+    size: calc(#{$steps} * 100%) auto
+    
+/*
  * Center all child elements horizontally and vertically.
  *
  * Examples: @include centerChilds()
@@ -153,22 +172,3 @@
     margin-left: 0
   &:last-child
     margin-right: 0
-  
-/*
- * Create animation from a horizontal sprite sheet
- *
- * Examples: @include animationSpriteSheet(6, "../img/sprite.png", 1.5s)
- */ 
-@mixin animationSpriteSheet($steps, $image, $speed: 1s, $iteration: infinite)
-  $id: unique-id()
-  @keyframes #{$id}
-    100%
-      background-position-x: calc(#{$steps} * -100%)
-  animation:
-    name: $id
-    duration: $speed
-    iteration-count: $iteration
-    timing-function: steps(#{$steps}) 
-  background:
-    image: url(#{$image})
-    size: calc(#{$steps} * 100%) auto
