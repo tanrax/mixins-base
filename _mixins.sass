@@ -1,4 +1,14 @@
 /*
+ * Create a hover that prevents the hover from appearing when you scroll in mobile
+ *
+ * Examples: @include hover()
+ */
+@mixin hover()
+  @media (hover: hover)
+    &:hover
+      @content
+
+/*
  * Fixes an element on the page to take up all the space or only part of it.
  * $side: all (default), top, bottom
  *
